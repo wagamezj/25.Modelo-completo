@@ -7,6 +7,7 @@ import pandas as pd
 import pyodbc
 import getpass
 import openpyxl
+import plotly.graph_objects as go
 
 
 #%% Datos eficiencia
@@ -99,7 +100,7 @@ solicitudescitas_data = """SELECT  VIPS_AGENDA.Mes_Solicitud_Id Mes_Solicitud_Id
 #password = getpass.getpass(prompt='Ingrese contraseña ')
 print('Conectado con la base de datos')
 
-connection = pyodbc.connect('DSN=TERADATA2;UID=wilmagju;PWD=Magangue123#')
+connection = pyodbc.connect('DSN=TERADATA2;UID=wilmagju;PWD=')
 
 print('Se realiza la conexion correctamente')
 
@@ -308,7 +309,13 @@ logrando un uso de sus capacidades al {}% el servicio de CONSULTA MEDICO GENERAL
      elif rel >0.10:
          m7='Para servicios como medicina prioritaria de la oferta que generamos en el ultimo mes de '+str(ofert)+' aproximandamente el '+str(rel)+'% es un poco mas alto de lo permitido surgiendo la necesidad de hacer un mejor aprovechamiento de las citas'
     
+     # Grafica   
     
+     m8= 'Este ha sido el comportamiento segun el tiempo agendado de el numero de medicos que han trabajado en la sede'
+     grafi= 'medicos{}'.format(h)
+     fig = go.Figure(data=go.Scatter(x=Meses, y=dictio['Sedes'][h]['Medicos'],mode="lines+markers+text"))
+     fig.write_image(r"D:\Usuarios\wilmagju\OneDrive - Seguros Suramericana, S.A\25.Modelo completo\Graficas\{}.png".format(grafi))
+     
      print(mensaje)
      print(m7)
     
@@ -336,7 +343,7 @@ import plotly.graph_objects as go
 
 
 fig = go.Figure(data=go.Scatter(x=Meses, y=dictio['Sedes']['IPS SURA ALMACENTRO']['Codigos']['CONSULTA MEDICO GENERAL']['Oportunidad']))
-fig.write_image("oportunidad2.png")
+fig.write_image("rD:\Usuarios\wilmagju\OneDrive - Seguros Suramericana, S.A\25.Modelo completo\Graficas\")
 fig.show()
 
 
@@ -357,7 +364,7 @@ msg['Subject'] = "Prueba para la IPS Almacentro"
 
 
 msg.attach(MIMEText(mensajex, 'plain'))
-
+#cosa
 #create server
 #server = smtplib.SMTP('smtp.gmail.com: 587')
 server = smtplib.SMTP('smtp.office365.com: 587')
