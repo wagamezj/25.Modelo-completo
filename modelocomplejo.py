@@ -313,11 +313,11 @@ logrando un uso de sus capacidades al {}% el servicio de CONSULTA MEDICO GENERAL
     
      # Grafica   
     
-     m8= 'Este ha sido el comportamiento segun el tiempo agendado de el numero de medicos que han trabajado en la sede'
-     grafi= 'medicos{}'.format(h)
+     m8= '. Este ha sido el comportamiento segun el tiempo agendado de el numero de medicos que han trabajado en la sede'
+     grafi= 'medicos{}'.format(k)
      fig = go.Figure(data=go.Scatter(x=Meses, y=dictio['Sedes'][h]['Medicos'],mode="lines+markers+text"))
      fig.write_image(r"D:\Usuarios\wilmagju\OneDrive - Seguros Suramericana, S.A\25.Modelo completo\Graficas\{}.png".format(grafi))
-     
+     url='https://raw.githubusercontent.com/wagamezj/25.Modelo-completo/main/Graficas/'
      print(mensaje)
      print(m7)
     
@@ -327,9 +327,8 @@ logrando un uso de sus capacidades al {}% el servicio de CONSULTA MEDICO GENERAL
                        'Email':Sedes[2][k],
                        'Asunto':'Datos de la IPS {}'.format(h),
                        'Cuerpo':mensaje,
-                       'Cuerpo 2': m7,
-                       'imagen': grafi
-                       },ignore_index=True)
+                       'Cuerpo 2': m7+m8,
+                       'imagen': url+grafi},ignore_index=True)
    
      
      
@@ -347,7 +346,7 @@ import plotly.graph_objects as go
 
 
 fig = go.Figure(data=go.Scatter(x=Meses, y=dictio['Sedes']['IPS SURA ALMACENTRO']['Codigos']['CONSULTA MEDICO GENERAL']['Oportunidad']))
-fig.write_image("rD:\Usuarios\wilmagju\OneDrive - Seguros Suramericana, S.A\25.Modelo completo\Graficas\")
+fig.write_image(r"D:\Usuarios\wilmagju\OneDrive - Seguros Suramericana, S.A\25.Modelo completo\Graficas\ejemplo.png")
 fig.show()
 
 
