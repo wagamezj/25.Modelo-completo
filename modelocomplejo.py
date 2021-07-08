@@ -235,7 +235,9 @@ control = pd.DataFrame({'Id': [],
                        'Email':[],
                        'Asunto':[],
                        'Cuerpo':[],
-                       'Date':[]})
+                       'Cuerpo 2':[],
+                       'Date':[],
+                       'imagen':[]})
            
 for k,h in enumerate(dictio['Sedes']):
      # Revisar la oportunidad ultimo mes 
@@ -325,7 +327,9 @@ logrando un uso de sus capacidades al {}% el servicio de CONSULTA MEDICO GENERAL
                        'Email':Sedes[2][k],
                        'Asunto':'Datos de la IPS {}'.format(h),
                        'Cuerpo':mensaje,
-                       'Date':[]},ignore_index=True)
+                       'Cuerpo 2': m7,
+                       'imagen': grafi
+                       },ignore_index=True)
    
      
      
